@@ -8,12 +8,12 @@ public class playerMovement : MonoBehaviour
     Rigidbody2D rb;
 
     public float walkSpeed = 4f;
-    float speedLimiter = .7f;
+    public float speedLimiter = .7f;
     float inputHorizontal;
     float inputVertical;
     //this is to change the walk speed to the dash speed
     public float activeMoveSpeed;
-    public float dashSpeed = 25f;
+    public float dashSpeed = 5f;
     //these are self explanitory
     public float dashLength = .7f, dashCooldown = 3.5f;
     //these are use to make it so you cant spam the dash
@@ -39,7 +39,7 @@ public class playerMovement : MonoBehaviour
         {
             if (dashCoolCounter <= 0 && dashCounter <= 0)
             {
-                activeMoveSpeed = dashSpeed;
+                activeMoveSpeed *= dashSpeed;
                 dashCounter = dashLength;
             }
         }
