@@ -44,11 +44,13 @@ public class Health
     // Methods
     public void Dmg(int dmgAmount)
     {
+        // Damages the player
         if (_currentHealth > 0)
             _currentHealth -= dmgAmount;
     }
     public void Heal(int healAmount)
     {
+        // Tells if the character should get healed or not.
         if (_currentHealth < _currentMaxHealth)
             _currentHealth += healAmount;
         if (_currentHealth > _currentMaxHealth)
