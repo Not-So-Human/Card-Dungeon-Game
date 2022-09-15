@@ -10,13 +10,13 @@ public class playerBehavior : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.F))
         {
             PlayerTakeDmg(20);
-            Debug.Log(GameManager.gameManager._playerHealth.healthAmount);
+            Debug.Log("Health: " + GameManager.gameManager._playerHealth.healthAmount);
         }
         // Testing Input To Heal
         if (Input.GetKeyDown(KeyCode.G))
         {
             PlayerHeal(10);
-            Debug.Log(GameManager.gameManager._playerHealth.healthAmount);
+            Debug.Log("Health: " + GameManager.gameManager._playerHealth.healthAmount);
         }
     }
 
