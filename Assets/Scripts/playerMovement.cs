@@ -121,7 +121,13 @@ public class playerMovement : MonoBehaviour
             {
                 ChangeAnimationState(PLAYER_WALK_DOWN);
             }
-            
+            else if (inputVertical = 0 && inputHorizontal = 0)
+            // Make sures there is no input so it stops the character from moving
+            {
+
+                rb.velocity = new Vector2(0f, 0f);
+                ChangeAnimationState(PLAYER_IDLE);
+            }
 
 
         }

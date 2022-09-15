@@ -10,7 +10,7 @@ public class Weapon : ScriptableObject
 
     // Sets asset
     public GameObject projectilePrefab;
-    public float fireRate = 1f;
+    public float fireRate = 1;
     public int damage = 20;
 
     public void Attack()
