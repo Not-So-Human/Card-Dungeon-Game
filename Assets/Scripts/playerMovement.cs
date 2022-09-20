@@ -38,7 +38,10 @@ public class playerMovement : MonoBehaviour
     {
         activeMoveSpeed = walkSpeed;
         rb = gameObject.GetComponent<Rigidbody2D>();
+
         animator = gameObject.GetComponent<Animator>();
+
+
     }
 
     // Update is called once per frame
@@ -87,50 +90,47 @@ public class playerMovement : MonoBehaviour
             }
 
             rb.velocity = new Vector2(inputHorizontal * activeMoveSpeed, inputVertical * activeMoveSpeed);
-           
-       
-            if (inputHorizontal > 0)
-            {
-                ChangeAnimationState(PLAYER_WALK_RIGHT);
-            }
-            else if (inputHorizontal > 0 && inputVertical > 0)
-            {
-                ChangeAnimationState(PLAYER_WALK_RIGHT_UP);
-            }
-            else if (inputHorizontal < 0 && inputVertical > 0)
-            {
-                ChangeAnimationState(PLAYER_WALK_LEFT_UP);
-            }
-            else if (inputHorizontal > 0 && inputVertical < 0)
-            {
-                ChangeAnimationState(PLAYER_WALK_RIGHT_DOWN);
-            }
-            else if (inputHorizontal < 0 && inputVertical < 0)
-            {
-                ChangeAnimationState(PLAYER_WALK_LEFT_DOWN);
-            }
-            else if (inputHorizontal < 0)
-            {
-                ChangeAnimationState(PLAYER_WALK_LEFT);
-            }
-            else if (inputVertical > 0)
-            {
-                ChangeAnimationState(PLAYER_WALK_UP);
-            }
-            else if (inputVertical < 0)
-            {
-                ChangeAnimationState(PLAYER_WALK_DOWN);
-            }
-            else if (inputVertical = 0 && inputHorizontal = 0)
-            // Make sures there is no input so it stops the character from moving
-            {
 
-                rb.velocity = new Vector2(0f, 0f);
-                ChangeAnimationState(PLAYER_IDLE);
-            }
-
-
+               
+                if (inputHorizontal > 0 && inputVertical > 0)
+                {
+                    ChangeAnimationState(PLAYER_WALK_RIGHT_UP);
+                }
+                else if (inputHorizontal < 0 && inputVertical > 0)
+                {
+                    ChangeAnimationState(PLAYER_WALK_LEFT_UP);
+                }
+                else if (inputHorizontal > 0 && inputVertical < 0)
+                {
+                    ChangeAnimationState(PLAYER_WALK_RIGHT_DOWN);
+                }
+                else if (inputHorizontal < 0 && inputVertical < 0)
+                {
+                    ChangeAnimationState(PLAYER_WALK_LEFT_DOWN);
+                }
+                else if (inputHorizontal < 0)
+                {
+                    ChangeAnimationState(PLAYER_WALK_LEFT);
+                }
+                else if (inputVertical > 0)
+                {
+                    ChangeAnimationState(PLAYER_WALK_UP);
+                }
+                else if (inputVertical < 0)
+                {
+                    ChangeAnimationState(PLAYER_WALK_DOWN);
+                }
+                else if (inputHorizontal > 0)
+                {
+                    ChangeAnimationState(PLAYER_WALK_RIGHT);
+                }
         }
+        else
+        { 
+            rb.velocity = new Vector2(0f, 0f);
+            ChangeAnimationState(PLAYER_IDLE);
+        }
+
         //animation state changer
         void ChangeAnimationState(string newState)
         {
@@ -138,7 +138,10 @@ public class playerMovement : MonoBehaviour
             if (currentState == newState) return;
 
             //play new animation
+
             animator.Play(newState);
+
+
 
             //Update current state
             currentState = newState;
