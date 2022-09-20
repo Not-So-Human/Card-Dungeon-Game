@@ -25,7 +25,7 @@ public class playerMovement : MonoBehaviour
     const string PLAYER_WALK_RIGHT_UP = "Player_Walk_Right_Up";
     const string PLAYER_WALK_RIGHT = "Player_Walk_Right";
     const string PLAYER_WALK_RIGHT_DOWN = "Player_Walk_Right_Down";
-    const string PLAYER_WALK_DOWN = "Player_WalkDown";
+    const string PLAYER_WALK_DOWN = "Player_Walk_Down";
 
 
     //this is to change the walk speed to the dash speed
@@ -82,7 +82,7 @@ public class playerMovement : MonoBehaviour
     {
         // Makes sure the speed you move diagonally is controlled
         if (inputHorizontal != 0 || inputVertical != 0)
-        { 
+        {
             if (inputHorizontal != 0 && inputVertical != 0)
             {
                 inputHorizontal *= speedLimiter;
@@ -92,11 +92,6 @@ public class playerMovement : MonoBehaviour
             rb.velocity = new Vector2(inputHorizontal * activeMoveSpeed, inputVertical * activeMoveSpeed);
 
 
-            if (inputHorizontal == 0f && inputVertical == 0f)
-            {
-                rb.velocity = new Vector2(0f, 0f);
-                ChangeAnimationState(PLAYER_IDLE);
-            }
             if (inputHorizontal > 0 && inputVertical > 0)
             {
                 ChangeAnimationState(PLAYER_WALK_RIGHT_UP);
@@ -125,11 +120,15 @@ public class playerMovement : MonoBehaviour
             {
                 ChangeAnimationState(PLAYER_WALK_DOWN);
             }
-            else if(inputHorizontal > 0)
+            else if (inputHorizontal > 0)
             {
                 ChangeAnimationState(PLAYER_WALK_RIGHT);
-                
             }
+        }
+        else
+        {
+            rb.velocity = new Vector2(0f, 0f);
+            ChangeAnimationState(PLAYER_IDLE);
         }
         //animation state changer
         void ChangeAnimationState(string newState)
