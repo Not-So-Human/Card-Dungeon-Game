@@ -11,8 +11,7 @@ public class playerMovement : MonoBehaviour
     public float speedLimiter = .7f;
     float inputHorizontal;
     float inputVertical;
-<<<<<<< Updated upstream
-=======
+
 
     //Animations and states
     Animator animator;
@@ -27,7 +26,6 @@ public class playerMovement : MonoBehaviour
     const string PLAYER_WALK_RIGHT_DOWN = "Player_Walk_Right_Down";
     const string PLAYER_WALK_DOWN = "Player_WalkDown";
 
->>>>>>> Stashed changes
     //this is to change the walk speed to the dash speed
     public float activeMoveSpeed;
     public float dashSpeed = 5f;
@@ -90,9 +88,6 @@ public class playerMovement : MonoBehaviour
             }
 
             rb.velocity = new Vector2(inputHorizontal * activeMoveSpeed, inputVertical * activeMoveSpeed);
-<<<<<<< Updated upstream
-=======
-
 
             if (inputHorizontal == 0f && inputVertical == 0f)
             {
@@ -132,8 +127,6 @@ public class playerMovement : MonoBehaviour
                 ChangeAnimationState(PLAYER_WALK_RIGHT);
                 
             }
-
-
         }
         //animation state changer
         void ChangeAnimationState(string newState)
@@ -146,11 +139,7 @@ public class playerMovement : MonoBehaviour
 
             //Update current state
             currentState = newState;
->>>>>>> Stashed changes
         }
-        else
-        // Make sures there is no input so it stops the character from moving
-            rb.velocity = new Vector2(0f, 0f);
     }
     
 }
