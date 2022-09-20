@@ -11,23 +11,6 @@ public class playerMovement : MonoBehaviour
     public float speedLimiter = .7f;
     float inputHorizontal;
     float inputVertical;
-<<<<<<< Updated upstream
-=======
-
-    //Animations and states
-    Animator animator;
-    string currentState;
-    const string PLAYER_IDLE = "Player_Idle";
-    const string PLAYER_WALK_LEFT_DOWN = "Player_Walk_Left_Down";
-    const string PLAYER_WALK_LEFT = "Player_Walk_Left";
-    const string PLAYER_WALK_LEFT_UP = "Player_Walk_Left_Up";
-    const string PLAYER_WALK_UP = "Player_Walk_Up";
-    const string PLAYER_WALK_RIGHT_UP = "Player_Walk_Right_Up";
-    const string PLAYER_WALK_RIGHT = "Player_Walk_Right";
-    const string PLAYER_WALK_RIGHT_DOWN = "Player_Walk_Right_Down";
-    const string PLAYER_WALK_DOWN = "Player_WalkDown";
-
->>>>>>> Stashed changes
     //this is to change the walk speed to the dash speed
     public float activeMoveSpeed;
     public float dashSpeed = 5f;
@@ -90,63 +73,6 @@ public class playerMovement : MonoBehaviour
             }
 
             rb.velocity = new Vector2(inputHorizontal * activeMoveSpeed, inputVertical * activeMoveSpeed);
-<<<<<<< Updated upstream
-=======
-
-
-            if (inputHorizontal == 0f && inputVertical == 0f)
-            {
-                rb.velocity = new Vector2(0f, 0f);
-                ChangeAnimationState(PLAYER_IDLE);
-            }
-            if (inputHorizontal > 0 && inputVertical > 0)
-            {
-                ChangeAnimationState(PLAYER_WALK_RIGHT_UP);
-            }
-            else if (inputHorizontal < 0 && inputVertical > 0)
-            {
-                ChangeAnimationState(PLAYER_WALK_LEFT_UP);
-            }
-            else if (inputHorizontal > 0 && inputVertical < 0)
-            {
-                ChangeAnimationState(PLAYER_WALK_RIGHT_DOWN);
-            }
-            else if (inputHorizontal < 0 && inputVertical < 0)
-            {
-                ChangeAnimationState(PLAYER_WALK_LEFT_DOWN);
-            }
-            else if (inputHorizontal < 0)
-            {
-                ChangeAnimationState(PLAYER_WALK_LEFT);
-            }
-            else if (inputVertical > 0)
-            {
-                ChangeAnimationState(PLAYER_WALK_UP);
-            }
-            else if (inputVertical < 0)
-            {
-                ChangeAnimationState(PLAYER_WALK_DOWN);
-            }
-            else if(inputHorizontal > 0)
-            {
-                ChangeAnimationState(PLAYER_WALK_RIGHT);
-                
-            }
-
-
-        }
-        //animation state changer
-        void ChangeAnimationState(string newState)
-        {
-            //Stop animation from interrupting itself
-            if (currentState == newState) return;
-
-            //play new animation
-            animator.Play(newState);
-
-            //Update current state
-            currentState = newState;
->>>>>>> Stashed changes
         }
         else
         // Make sures there is no input so it stops the character from moving
