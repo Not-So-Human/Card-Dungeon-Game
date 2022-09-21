@@ -7,11 +7,10 @@ public class playerMovement : MonoBehaviour
 {
     Rigidbody2D rb;
 
-    public float walkSpeed = 4f;
+    public float walkSpeed = 5f;
     public float speedLimiter = .7f;
     float inputHorizontal;
     float inputVertical;
-
 
     //Animations and states
     Animator animator;
@@ -31,7 +30,7 @@ public class playerMovement : MonoBehaviour
     public float activeMoveSpeed;
     public float dashSpeed = 5f;
     //these are self explanitory
-    public float dashLength = .7f, dashCooldown = 3.5f;
+    public float dashLength = .6f, dashCooldown = 3.5f;
     //these are use to make it so you cant spam the dash
     public float dashCounter;
     public float dashCoolCounter;
@@ -40,7 +39,8 @@ public class playerMovement : MonoBehaviour
     {
         activeMoveSpeed = walkSpeed;
         rb = gameObject.GetComponent<Rigidbody2D>();
-       
+
+        animator = gameObject.GetComponent<Animator>();
     }
 
     // Update is called once per frame
@@ -71,7 +71,7 @@ public class playerMovement : MonoBehaviour
             }
         }
 
-        if(dashCoolCounter > 0)
+        if (dashCoolCounter > 0)
         {
             dashCoolCounter -= Time.deltaTime;
         }
@@ -91,14 +91,7 @@ public class playerMovement : MonoBehaviour
             rb.velocity = new Vector2(inputHorizontal * activeMoveSpeed, inputVertical * activeMoveSpeed);
 
 
-
-
-            if (inputHorizontal == 0f && inputVertical == 0f)
-            {
-                rb.velocity = new Vector2(0f, 0f);
-                ChangeAnimationState(PLAYER_IDLE);
-            }
-            else if (inputHorizontal > 0 && inputVertical > 0)
+            if (inputHorizontal > 0 && inputVertical > 0)
 
             {
                 ChangeAnimationState(PLAYER_WALK_RIGHT_UP);
@@ -131,8 +124,6 @@ public class playerMovement : MonoBehaviour
             {
                 ChangeAnimationState(PLAYER_WALK_RIGHT);
             }
-
-
         }
         else
         {
@@ -146,13 +137,12 @@ public class playerMovement : MonoBehaviour
             if (currentState == newState) return;
 
             //play new animation
-           
+            animator.Play(newState);
+
+
 
             //Update current state
             currentState = newState;
-
         }
-
     }
-    
 }
