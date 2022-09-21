@@ -5,7 +5,6 @@
 [Bb]uilds/
 [Ll]ogs/
 [Uu]serSettings/
-[Pp]rojectSettings/
 
 # Uncomment this line if you wish to ignore the asset store tools plugin
 # [Aa]ssets/AssetStoreTools*
@@ -33,6 +32,9 @@ ExportedObj/
 *.mdb
 *.opendb
 *.VC.db
+
+# include meta files
+!*.*.meta
 
 # Unity3D generated meta files
 *.pidb.meta
