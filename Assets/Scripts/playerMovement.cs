@@ -93,12 +93,8 @@ public class playerMovement : MonoBehaviour
 
 
 
-            if (inputHorizontal == 0f && inputVertical == 0f)
-            {
-                rb.velocity = new Vector2(0f, 0f);
-                ChangeAnimationState(PLAYER_IDLE);
-            }
-            else if (inputHorizontal > 0 && inputVertical > 0)
+            
+            if (inputHorizontal > 0 && inputVertical > 0)
 
             {
                 ChangeAnimationState(PLAYER_WALK_RIGHT_UP);
@@ -146,7 +142,7 @@ public class playerMovement : MonoBehaviour
             if (currentState == newState) return;
 
             //play new animation
-           
+            animator.Play(newState);
 
             //Update current state
             currentState = newState;
