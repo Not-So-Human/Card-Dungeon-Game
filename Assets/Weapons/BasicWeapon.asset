@@ -1,0 +1,18 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7653d19bb708dd249bcaf98cd550b425, type: 3}
+  m_Name: BasicWeapon
+  m_EditorClassIdentifier: 
+  currentWeaponSprite: {fileID: 21300000, guid: d736c3fc7f6ed0947899ae94bd986187, type: 3}
+  projectilePrefab: {fileID: 8571205390483054180, guid: 9a80d3b3586e74e4eb2ddd94af71d391, type: 3}
+  fireRate: 1
+  damage: 20
