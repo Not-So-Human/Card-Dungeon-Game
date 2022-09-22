@@ -28,9 +28,9 @@ public class playerMovement : MonoBehaviour
 
     //this is to change the walk speed to the dash speed
     public float activeMoveSpeed;
-    public float dashSpeed = 5f;
+    public float dashSpeed = 4f;
     //these are self explanitory
-    public float dashLength = .6f, dashCooldown = 3.5f;
+    public float dashLength = .3f, dashCooldown = 3.5f;
     //these are use to make it so you cant spam the dash
     public float dashCounter;
     public float dashCoolCounter;
