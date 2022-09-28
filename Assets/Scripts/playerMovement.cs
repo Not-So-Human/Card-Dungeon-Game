@@ -7,7 +7,7 @@ public class playerMovement : MonoBehaviour
 {
     Rigidbody2D rb;
 
-    public float walkSpeed = .45f;
+    public float walkSpeed = .3f;
     public float speedLimiter = .7f;
     float inputHorizontal;
     float inputVertical;
@@ -30,7 +30,7 @@ public class playerMovement : MonoBehaviour
     public float activeMoveSpeed;
     public float dashSpeed = 4f;
     //these are self explanitory
-    public float dashLength = .3f, dashCooldown = 3.5f;
+    public float dashLength = .2f, dashCooldown = 3.5f;
     //these are use to make it so you cant spam the dash
     public float dashCounter;
     public float dashCoolCounter;
