@@ -30,4 +30,8 @@ public class playerBehavior : MonoBehaviour
         // Applies the healing function (adding health)
         GameManager.gameManager._playerHealth.Heal(healing);
     }
+    private void OnTriggerEnter2D(Collider2D collider)
+    {
+        Debug.Log("Trigger!");
+    }
 }

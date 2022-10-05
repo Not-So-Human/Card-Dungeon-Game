@@ -2,17 +2,12 @@ using UnityEngine;
 
 public class Door : MonoBehaviour
 {
-    public Animator _animator;
-
-
-    private void Awake()
+    void OnTriggerEnter2D(Collider2D collider)
     {
-        _animator = GetComponent<Animator>();
-    }
-
-    [ContextMenu(itemName:"Open")]
-    public void Open()
-    {
-        _animator.SetTrigger(name: "Open");
+        if ((collider.gameObject.name == "Player") && (PlayerVariablesAndItems.keyCount > 0))
+        {
+            PlayerVariablesAndItems.keyCount--;
+            Destroy(gameObject);
+        }
     }
 }
