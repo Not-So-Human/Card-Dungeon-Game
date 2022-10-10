@@ -4,20 +4,9 @@ using UnityEngine;
 
 public class playerBehavior : MonoBehaviour
 {
-    public GameObject Enemy;
-   /*Enemy enemy;
-    void Awake()
-    {
-        enemyHealth = GameObject.Find("enemy-prototype1").GetComponent<enemyHealth>();
-    }
-    void Start()
-    {
-
-    }
-   
     void Update()
-    */{
-        //Testing Input To Take Damage
+    {
+        // Testing Input To Take Damage
         if (Input.GetKeyDown(KeyCode.F))
         {
             PlayerTakeDmg(20);
@@ -29,14 +18,6 @@ public class playerBehavior : MonoBehaviour
             PlayerHeal(10);
             Debug.Log("Health: " + GameManager.gameManager._playerHealth.healthAmount);
         }
-        /*if (Input.GetKeyDown(KeyCode.T))
-        {
-            Enemy.enemyHealth - 10;
-            if (enemyHealth >= 0)
-                gameObject.active = false;
-            Debug.Log("Enemy Health: " + ememyHealth);
-        }*/
-        
     }
 
     private void PlayerTakeDmg(int dmg)
